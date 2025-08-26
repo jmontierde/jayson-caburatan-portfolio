@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { sub, video } from "motion/react-client";
 import Link from "next/link";
 
 const projectData = [
