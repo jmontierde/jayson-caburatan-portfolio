@@ -12,7 +12,7 @@ const Services = () => {
         </p>
       </div>
       <div className="flex flex-col gap-2">
-        <h2 className="text-2xl text-white">⚡ Frontend Development</h2>
+        <h2 className="text-2xl text-white">⚡Frontend Development</h2>
         <p className="text-base text-[#BDBDBD]">
           Pixel-perfect, interactive, and optimized frontends using React,
           Next.js, and modern frameworks.
