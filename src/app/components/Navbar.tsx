@@ -5,12 +5,12 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between  max-sm:items-center w-full">
+    <div className="flex justify-between  max-lg:items-center w-full">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-        className="flex gap-6 items-center text-lg w-full  md:max-w-1/2 text-white"
+        className="flex gap-6 items-center text-lg w-full  lg:max-w-1/2 text-white"
       >
         <Image
           src="/me.png"
@@ -26,7 +26,7 @@ const Navbar = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-        className="text-white text-lg text-right w-full font-semibold max-sm:block md:hidden "
+        className="text-white text-lg text-right w-full font-semibold max-lg:block lg:hidden "
       >
         Get in touch
       </motion.h3>

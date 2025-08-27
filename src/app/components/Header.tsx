@@ -11,10 +11,10 @@ const Header = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="flex max-sm:flex-col flex-row justify-between md:w-2/3 md:min-h-[600px] mx-auto items-start text-2xl py-12">
+      <div className="flex max-lg:flex-col flex-row justify-between lg:w-2/3 lg:min-h-[600px] mx-auto items-start text-2xl py-12">
         <Navbar />
 
-        <div className="flex flex-col gap-6 pt-16 md:pt-0 md:w-1/2 ">
+        <div className="flex flex-col gap-6 pt-16 lg:pt-0 lg:w-1/2 ">
           <motion.h2
             className="text-[#bdbdbd] text-left leading-relaxed"
             initial={{ opacity: 0 }}

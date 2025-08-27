@@ -1,13 +1,12 @@
 "use client";
-import Projects from "./components/Prrojects";
-import Ribbons from "./components/Ribons";
+import Projects from "./components/Projects";
 import Threads from "./components/Threads";
 import FlowingMenu from "./components/FlowingMenu";
-import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import { TechStack } from "./components/TechStack";
 import Footer from "./components/Footer";
 import { motion } from "motion/react";
+import Services from "./components/Services";
 
 export default function Home() {
   const demoItems = [
@@ -34,7 +33,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-[#333333] h-full scroll-smooth">
+    <div className="bg-[#333333] h-full scroll-smooth overflow-hidden">
       <main className="bg-[#101014] min-h-[100vh] ">
         <div
           style={{ width: "100%", height: "800px", position: "relative" }}
@@ -57,13 +56,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="md:w-1/2 mx-auto text-white py-12 md:py-24 flex flex-col gap-6 px-6 md:px-0"
+        className="md:w-2/3 mx-auto text-white py-12 md:py-24 flex flex-col gap-6 px-6 md:px-0"
       >
-        <p className="text-2xl md:text-[32px] md:text-center">
-          I love turning concepts into real projects. Whether it’s building a
-          platform or crafting a small feature, I aim to deliver work that adds
-          value and makes a difference.
-        </p>
+        <Services />
       </motion.section>
       <section className="w-full z-50">
         <motion.div
@@ -77,7 +72,7 @@ export default function Home() {
       </section>
       <motion.section
         className="py-3 px-3 "
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         id="contact"

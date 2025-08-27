@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
@@ -40,23 +40,38 @@ const projectData = [
     video: "",
     description:
       "Delicia is a recipe app that lets users discover, save, and explore a variety of dishes with easy-to-follow instructions.",
-
     projectUrl: "https://delicia-recipes.vercel.app/",
   },
 ];
 
 const Projects = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
+
   return (
-    <div className="md:max-w-8/12 mx-auto z-50 px-6">
-      <h1 className="text-[#BDBDBD] font-semibold text-base pb-12 md:pb-24">
+    <div className="md:max-w-8/12 mx-auto z-50 px-4 sm:px-6 lg:px-8">
+      <h1 className="text-[#BDBDBD] font-semibold text-base pb-8 md:pb-16 lg:pb-24">
         Projects
       </h1>
-      <main className="flex flex-col items-center justify-between gap-24 md:gap-[30vh]">
+      <main className="flex flex-col items-center justify-between gap-16 md:gap-24 lg:gap-[30vh]">
         {projectData.map((project, idx) => {
           const [ref, inView] = useInView({
             triggerOnce: true,
-            threshold: 0.5,
+            threshold: isMobile ? 0.2 : 0.5,
           });
+
           return (
             <motion.section
               key={project.title}
@@ -64,32 +79,39 @@ const Projects = () => {
               initial={{ opacity: 0, y: 70 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, ease: "easeOut" }}
-              className=""
+              className="w-full"
             >
-              <div className="flex max-sm:flex-col-reverse gap-6  md:gap-24 ">
+              <div
+                className={`flex ${
+                  idx % 2 === 1 ? "md:flex-row-reverse" : ""
+                } flex-col-reverse md:flex-row gap-6 md:gap-12 lg:gap-24`}
+              >
                 <div className="flex flex-col md:w-6/12 justify-center">
-                  <h2 className="text-2xl md:text-[40px] font-bold">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-bold">
                     {project.title}
                   </h2>
-                  <h3 className="text-[#777171] text-lg font-normal">
+                  <h3 className="text-[#777171] text-base sm:text-lg font-normal">
                     {project.subTitle}
                   </h3>
-                  <p className="text-[#777171] text-lg font-normal py-3 md:py-6">
+                  <p className="text-[#777171] text-base sm:text-lg font-normal py-3 md:py-4 lg:py-6">
                     {project.description}
                   </p>
                   <Link
                     href={project.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="cursor-pointer"
+                    className="relative group cursor-pointer inline-block w-fit"
                   >
-                    <h5 className="text-2xl font-bold">View Project</h5>
+                    <h5 className="text-lg sm:text-xl md:text-2xl font-bold">
+                      View Project
+                      <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                    </h5>
                   </Link>
                 </div>
-                <div className="w-full md:w-6/12 mx-auto relative overflow-hidden rounded-2xl shadow-lg">
+                <div className="w-full md:w-6/12 mx-auto relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg aspect-video">
                   {project.video ? (
                     <video
-                      className="w-full h-auto max-h-[400px] object-contain"
+                      className="w-full h-full object-cover"
                       autoPlay
                       loop
                       muted
@@ -102,9 +124,10 @@ const Projects = () => {
                     <Image
                       src={project.img}
                       alt={project.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-auto max-h-[400px] object-contain"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover"
+                      priority={idx === 0}
                     />
                   )}
                 </div>
