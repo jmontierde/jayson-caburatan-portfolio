@@ -62,7 +62,7 @@ const Projects = () => {
 
   return (
     <div className="md:max-w-8/12 mx-auto z-50 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-[#BDBDBD] font-semibold text-base pb-8 md:pb-16 lg:pb-24">
+      <h1 className="text-[#BDBDBD] font-semibold text-lg pb-8 md:pb-16 lg:pb-24">
         Projects
       </h1>
       <main className="flex flex-col items-center justify-between gap-16 md:gap-24 lg:gap-[30vh]">

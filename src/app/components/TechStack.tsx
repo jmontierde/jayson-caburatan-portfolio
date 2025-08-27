@@ -74,7 +74,7 @@ const ReviewCard = ({ img, name }: { img: string; name: string }) => {
 
 export function TechStack() {
   return (
-    <div className="relative flex max-w-8/12 mx-auto flex-col items-center justify-center overflow-hidden">
+    <div className="relative flex  md:max-w-8/12 md:mx-auto flex-col items-center justify-center overflow-hidden">
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.name} {...review} />
@@ -85,9 +85,6 @@ export function TechStack() {
           <ReviewCard key={review.name} {...review} />
         ))}
       </Marquee>
-
-      {/* <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div> */}
-      {/* <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div> */}
     </div>
   );
 }

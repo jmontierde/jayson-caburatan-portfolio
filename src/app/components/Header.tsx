@@ -22,13 +22,18 @@ const Header = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
           >
             <span className="text-white font-semibold">
-              Passionate Web Developer
+              I’m a passionate Web Developer
             </span>{" "}
-            who loves turning ideas into interactive, user-friendly digital
-            experiences with a focus on clean code and modern design.
+            who enjoys transforming ideas into interactive and user-friendly
+            digital experiences. I aim to build applications that are not only
+            functional but also intuitive and visually engaging.
           </motion.h2>
 
-          <Link href="#contact-section" scroll={false}>
+          <Link
+            href="#contact-section"
+            scroll={false}
+            className="relative group cursor-pointer inline-block w-fit"
+          >
             <motion.h3
               className="text-white font-semibold max-sm:hidden md:block "
               initial={{ y: -50, opacity: 0 }}
@@ -42,8 +47,21 @@ const Header = () => {
               }}
             >
               Get in touch
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </motion.h3>
           </Link>
+
+          {/* <Link
+            href={project.projectUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative group cursor-pointer inline-block w-fit"
+          >
+            <h5 className="text-lg sm:text-xl md:text-2xl font-bold">
+              View Project
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+            </h5>
+          </Link> */}
         </div>
       </div>
     </motion.section>

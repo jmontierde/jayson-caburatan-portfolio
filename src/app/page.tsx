@@ -49,7 +49,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <div className="w-full py-24 bg-[#101014] rounded-b-[48px]">
+      <div className="w-full px-6 py-24 bg-[#101014] rounded-b-[48px]">
         <TechStack />
       </div>
       <motion.section

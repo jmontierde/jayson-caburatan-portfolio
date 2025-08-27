@@ -13,9 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jayson Caburatan - Portfolio",
+  title: "Jayson Caburatan",
   description:
     "Portfolio website of Jayson Caburatan, a full-stack developer specializing in building web applications using modern technologies such as Next.js, React, Node.js, and various databases.",
+  icons: {
+    icon: "/projects-img/logo.png", // or "/favicon.ico"
+  },
 };
 
 export default function RootLayout({
