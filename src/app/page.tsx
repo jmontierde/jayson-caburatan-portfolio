@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div className="bg-[#333333] h-full scroll-smooth overflow-hidden">
-      <main className="bg-[#101014] min-h-[100vh] max-w-2/3 mx-auto ">
+      <main className="bg-[#101014] min-h-[100vh] mx-auto ">
         <div
           style={{ width: "100%", height: "800px", position: "relative" }}
           className="relative   min-h-[100vh] bg-[#101014] rounded-b-xl"
