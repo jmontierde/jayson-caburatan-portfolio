@@ -42,6 +42,16 @@ const projectData = [
       "Delicia is a recipe app that lets users discover, save, and explore a variety of dishes with easy-to-follow instructions.",
     projectUrl: "https://delicia-recipes.vercel.app/",
   },
+  {
+    title: "Spend Wise",
+    img: "/projects-img/spend-wise-web.png",
+    mobileImg: "/projects-img/spend-wise-mobile.png",
+    subTitle: "Expense Tracker",
+    video: "",
+    description:
+      "SpendWise is an expense tracking app that helps users manage their budget, track spending, and gain insights into their financial habits.",
+    projectUrl: "https://spend-wise-web-rho.vercel.app",
+  },
 ];
 
 const Projects = () => {
@@ -108,10 +118,10 @@ const Projects = () => {
                     </h5>
                   </Link>
                 </div>
-                <div className="w-full md:w-6/12 mx-auto relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg aspect-video">
+                <div className={`w-full md:w-6/12 mx-auto relative ${project.mobileImg ? "" : "overflow-hidden rounded-xl md:rounded-2xl shadow-lg aspect-video"}`}>
                   {project.video ? (
                     <video
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-xl md:rounded-2xl shadow-lg"
                       autoPlay
                       loop
                       muted
@@ -120,6 +130,27 @@ const Projects = () => {
                       <source src={project.video} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
+                  ) : project.mobileImg ? (
+                    <>
+                      <div className="relative w-full aspect-video overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
+                        <Image
+                          src={project.img}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="absolute bottom-[-10%] right-[-5%] w-[30%] aspect-[9/19] overflow-hidden rounded-xl md:rounded-2xl shadow-2xl border-[3px] border-white/20 z-10">
+                        <Image
+                          src={project.mobileImg}
+                          alt={`${project.title} mobile`}
+                          fill
+                          sizes="(max-width: 768px) 28vw, 14vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    </>
                   ) : (
                     <Image
                       src={project.img}

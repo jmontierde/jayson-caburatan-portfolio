@@ -30,18 +30,25 @@ export default function Home() {
       text: "Delicia",
       image: "/projects-img/delicia.png",
     },
+    {
+      link: "#",
+      text: "Spend Wise",
+      image: "/projects-img/spend-wise-web.png",
+    },
   ];
 
   return (
     <div className="bg-[#333333] h-full scroll-smooth overflow-hidden">
       <main className="bg-[#101014] min-h-[100vh] mx-auto ">
         <div
-          style={{ width: "100%", height: "800px", position: "relative" }}
+          style={{ width: "100%", position: "relative" }}
           className="relative   min-h-[100vh] bg-[#101014] rounded-b-xl"
         >
-          <Threads amplitude={1} distance={0} enableMouseInteraction={true} />
+          <div className="absolute inset-0 z-0">
+            <Threads amplitude={1} distance={0} enableMouseInteraction={true} />
+          </div>
 
-          <div className="absolute  px-6 w-full min-h-screen flex flex-col justify-between  top-0 left-0 z-0">
+          <div className="relative  px-6 w-full min-h-screen flex flex-col justify-between  z-10">
             <Header />
             <div className="w-full md:w-8/12  mx-auto z-50">
               <FlowingMenu items={demoItems} />
