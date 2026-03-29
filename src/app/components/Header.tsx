@@ -22,7 +22,7 @@ const Header = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
           >
             <span className="text-white font-semibold">
-              I’m a passionate Web Developer
+              I’m a passionate Fullstack Developer
             </span>{" "}
             who enjoys transforming ideas into interactive and user-friendly
             digital experiences. I aim to build applications that are not only

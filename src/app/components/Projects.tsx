@@ -7,13 +7,15 @@ import Link from "next/link";
 
 const projectData = [
   {
-    title: "Vaping Sidewalk",
-    subTitle: "E-commerce Website",
-    img: "/projects-img/vaping.png",
-    video: "/vid/vaping-sidewalk-vid.mov",
+    title: "Spend Wise",
+    img: "/projects-img/spend-wise-web.png",
+    mobileImg: "/projects-img/spend-wise-mobile.png",
+    subTitle: "Expense Tracker",
+    video: "",
     description:
-      "Vaping Sidewalk is an e-commerce website designed for browsing, shopping, and purchasing vaping products online.",
-    projectUrl: "https://vapingsidewalk-client.onrender.com/",
+      "SpendWise is an expense tracking app that helps users manage their budget, track spending, and gain insights into their financial habits.",
+    projectUrl: "https://spend-wise-web-rho.vercel.app",
+    techStack: ["React", "Redux", "TypeScript", "React Native", "Convex", "Clerk", "OAuth", "OpenAI", "Tailwind CSS"],
   },
   {
     title: "SentiAI",
@@ -23,6 +25,7 @@ const projectData = [
     description:
       "SentiAI is a mental health companion app that offers supportive conversations, helping users reflect, manage emotions, and feel heard.",
     projectUrl: "https://senti-app-teal.vercel.app/",
+    techStack: ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "Vercel"],
   },
   {
     title: "TutorAI",
@@ -32,6 +35,17 @@ const projectData = [
     description:
       "TutorAI is a learning app with an AI voice companion that teaches, answers questions, and makes lessons interactive.",
     projectUrl: "https://tutor-ai-saas.vercel.app/",
+    techStack: ["Next.js", "TypeScript", "Vapi AI", "Supabase", "PostgreSQL", "Tailwind CSS", "Vercel"],
+  },
+  {
+    title: "Vaping Sidewalk",
+    subTitle: "E-commerce Website",
+    img: "/projects-img/vaping.png",
+    video: "/vid/vaping-sidewalk-vid.mov",
+    description:
+      "Vaping Sidewalk is an e-commerce website designed for browsing, shopping, and purchasing vaping products online.",
+    projectUrl: "https://vapingsidewalk-client.onrender.com/",
+    techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "MUI"],
   },
   {
     title: "Delicia",
@@ -41,16 +55,7 @@ const projectData = [
     description:
       "Delicia is a recipe app that lets users discover, save, and explore a variety of dishes with easy-to-follow instructions.",
     projectUrl: "https://delicia-recipes.vercel.app/",
-  },
-  {
-    title: "Spend Wise",
-    img: "/projects-img/spend-wise-web.png",
-    mobileImg: "/projects-img/spend-wise-mobile.png",
-    subTitle: "Expense Tracker",
-    video: "",
-    description:
-      "SpendWise is an expense tracking app that helps users manage their budget, track spending, and gain insights into their financial habits.",
-    projectUrl: "https://spend-wise-web-rho.vercel.app",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
   },
 ];
 
@@ -106,6 +111,16 @@ const Projects = () => {
                   <p className="text-[#777171] text-base sm:text-lg font-normal py-3 md:py-4 lg:py-6">
                     {project.description}
                   </p>
+                  <div className="flex flex-wrap gap-2 pb-4 md:pb-6">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-sm font-medium bg-[#f0f0f0] text-[#555] rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                   <Link
                     href={project.projectUrl}
                     target="_blank"
@@ -118,10 +133,10 @@ const Projects = () => {
                     </h5>
                   </Link>
                 </div>
-                <div className={`w-full md:w-6/12 mx-auto relative ${project.mobileImg ? "" : "overflow-hidden rounded-xl md:rounded-2xl shadow-lg aspect-video"}`}>
+                <div className={`w-full md:w-6/12 mx-auto relative md:self-center ${project.mobileImg ? "" : project.video ? "rounded-xl md:rounded-2xl shadow-lg overflow-hidden" : "overflow-hidden rounded-xl md:rounded-2xl shadow-lg aspect-video"}`}>
                   {project.video ? (
                     <video
-                      className="w-full h-full object-cover rounded-xl md:rounded-2xl shadow-lg"
+                      className="w-full block"
                       autoPlay
                       loop
                       muted
