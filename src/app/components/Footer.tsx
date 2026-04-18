@@ -17,16 +17,7 @@ const Footer = () => {
           >
             caburatanjayson92@gmail.com
           </Link>{" "}
-          |{" "}
-          <Link
-            href="https://www.facebook.com/devchiefs"
-            passHref
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline text-xl md:text-[32px]"
-          >
-            DevChiefs
-          </Link>
+        
         </h1>
         <h2 className="text-[#8B8B8B] text-lg md:text-2xl">
           Got an idea in mind? Send me an email and let’s make it happen.

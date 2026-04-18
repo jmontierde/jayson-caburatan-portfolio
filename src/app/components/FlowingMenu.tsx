@@ -128,6 +128,14 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
       <motion.a
         className="w-1/2 h-full flex items-center mr-auto mask-y-to-accent-foreground cursor-pointer font-semibold text-white text-[2rem] z-10 max-sm:text-2xl  md:w-1/3"
         href={link}
+        onClick={(e) => {
+          if (link.startsWith("#")) {
+            e.preventDefault();
+            document
+              .getElementById(link.slice(1))
+              ?.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         style={{ transition: "color 0.3s" }}

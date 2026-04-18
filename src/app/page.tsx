@@ -7,31 +7,35 @@ import { TechStack } from "./components/TechStack";
 import Footer from "./components/Footer";
 import { motion } from "motion/react";
 import Services from "./components/Services";
+import Experience from "./components/Experience";
+import Education from "./components/Education";
+import Navbar from "./components/Navbar";
+import Chatbot from "./components/Chatbot";
 
 export default function Home() {
   const demoItems = [
     {
-      link: "#",
+      link: "#projects",
       text: "Vaping Sidewalk",
       image: "/projects-img/vaping.png",
     },
     {
-      link: "#",
+      link: "#projects",
       text: "SentiAI",
       image: "/projects-img/senti-ai1.png",
     },
     {
-      link: "#",
+      link: "#projects",
       text: "TutorAI",
       image: "/projects-img/tutor-ai.png",
     },
     {
-      link: "#",
+      link: "#projects",
       text: "Delicia",
       image: "/projects-img/delicia.png",
     },
     {
-      link: "#",
+      link: "#projects",
       text: "Spend Wise",
       image: "/projects-img/spend-wise-web.png",
     },
@@ -39,6 +43,7 @@ export default function Home() {
 
   return (
     <div className="bg-[#333333] h-full scroll-smooth overflow-hidden">
+      <Navbar />
       <main className="bg-[#101014] min-h-[100vh] mx-auto ">
         <div
           style={{ width: "100%", position: "relative" }}
@@ -50,7 +55,7 @@ export default function Home() {
 
           <div className="relative  px-6 w-full min-h-screen flex flex-col justify-between  z-10">
             <Header />
-            <div className="w-full md:w-8/12  mx-auto z-50">
+            <div className="w-full md:w-8/12  mx-auto z-10">
               <FlowingMenu items={demoItems} />
             </div>
           </div>
@@ -63,29 +68,48 @@ export default function Home() {
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="md:w-2/3 mx-auto text-white py-12 md:py-24 flex flex-col gap-6 px-6 md:px-0"
+        id="services"
+        className="md:w-2/3 mx-auto text-white py-12 md:py-24 flex flex-col gap-6 px-6 md:px-0 scroll-mt-24"
       >
         <Services />
       </motion.section>
+      <motion.section
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        id="experience"
+        className="md:w-2/3 mx-auto text-white py-12 md:py-24 px-6 md:px-0 scroll-mt-24"
+      >
+        <div className="flex flex-col lg:flex-row gap-10">
+          <div className="flex-1 min-w-0">
+            <Experience />
+          </div>
+          <div className="lg:w-[380px] shrink-0 lg:sticky lg:top-24 lg:self-start">
+            <Education />
+          </div>
+        </div>
+      </motion.section>
       <section className="w-full z-50">
         <motion.div
+          id="projects"
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mx-3 py-12 md:py-24  bg-white rounded-[48px]"
+          className="mx-3 py-12 md:py-24  bg-white rounded-[48px] scroll-mt-24"
         >
           <Projects />
         </motion.div>
       </section>
       <motion.section
-        className="py-3 px-3 "
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         id="contact"
+        className="py-3 px-3 scroll-mt-24"
       >
         <Footer />
       </motion.section>
+      <Chatbot />
     </div>
   );
 }
