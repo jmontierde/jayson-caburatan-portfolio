@@ -78,16 +78,10 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         id="experience"
-        className="md:w-2/3 mx-auto text-white py-12 md:py-24 px-6 md:px-0 scroll-mt-24"
+        className="md:w-2/3 mx-auto text-white py-12 md:py-24 flex flex-col gap-6 px-6 md:px-0 scroll-mt-24"
       >
-        <div className="flex flex-col lg:flex-row gap-10">
-          <div className="flex-1 min-w-0">
-            <Experience />
-          </div>
-          <div className="lg:w-[380px] shrink-0 lg:sticky lg:top-24 lg:self-start">
-            <Education />
-          </div>
-        </div>
+        <Experience />
+        <Education />
       </motion.section>
       <section className="w-full z-50">
         <motion.div

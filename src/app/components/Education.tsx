@@ -11,19 +11,14 @@ interface Recognition {
 
 const recognitions: Recognition[] = [
   {
-    title: "Best in IT Student Internship",
-    description: "Academic distinction from PLV",
+    title: "Magna Cum Laude",
+    description: "Graduated with high academic distinction",
     year: "2024",
   },
   {
-    title: "2x Web Designing 2nd Placer",
-    description: "Competitive design recognition",
-    year: "2023",
-  },
-  {
-    title: "Dean's Lister",
-    description: "Maintained a 1.3 and 1.49 GWA",
-    year: "2023 - 2024",
+    title: "Consistent President's Lister",
+    description: "CGWA: 1.30",
+    year: "2020 - 2024",
   },
 ];
 
@@ -32,7 +27,7 @@ const Education = () => {
   const isInView = useInView(eduRef, { once: true, margin: "-50px" });
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 mt-10">
       {/* Section Header */}
       <div className="flex items-center gap-2 px-4 py-2 bg-[#1a1a1f] border border-[#2a2a30] rounded-full w-fit">
         <GraduationCap size={16} className="text-[#EDFF21]" />
@@ -47,17 +42,24 @@ const Education = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="bg-[#1a1a1f] border border-[#2a2a30] rounded-2xl p-5"
+        className="bg-[#1a1a1f] border border-[#2a2a30] rounded-2xl p-6"
       >
-        <h3 className="text-white text-lg font-bold mb-1">
+        <h3 className="text-white text-xl font-bold mb-1">
           Bachelor of Science in Information Technology
         </h3>
-        <p className="text-[#BDBDBD] text-sm">
-          Pamantasan ng Lungsod ng Valenzuela (PLV)
-        </p>
+        <p className="text-[#BDBDBD] text-sm">STI College Caloocan</p>
         <p className="text-[#8B8B8B] text-xs mt-0.5">
-          Valenzuela, Philippines
+          Caloocan, Philippines
         </p>
+
+        <div className="flex items-center gap-2 mt-3">
+          <span className="px-3 py-1 text-xs font-medium rounded-full bg-[#EDFF21]/10 text-[#EDFF21] border border-[#EDFF21]/20">
+            Magna Cum Laude
+          </span>
+          <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 text-[#BDBDBD] border border-white/10">
+            CGWA: 1.30
+          </span>
+        </div>
       </motion.div>
 
       {/* Recognition Header */}
