@@ -16,9 +16,15 @@ export default function Home() {
   const demoItems = [
     {
       link: "#projects",
-      text: "Vaping Sidewalk",
-      image: "/projects-img/vaping.png",
+      text: "Sellora",
+      image: "/projects-img/sellora.png",
     },
+    {
+      link: "#projects",
+      text: "Spend Wise",
+      image: "/projects-img/spend-wise-web.png",
+    },
+   
     {
       link: "#projects",
       text: "SentiAI",
@@ -31,13 +37,8 @@ export default function Home() {
     },
     {
       link: "#projects",
-      text: "Delicia",
-      image: "/projects-img/delicia.png",
-    },
-    {
-      link: "#projects",
-      text: "Spend Wise",
-      image: "/projects-img/spend-wise-web.png",
+      text: "Vaping Sidewalk",
+      image: "/projects-img/vaping.png",
     },
   ];
 

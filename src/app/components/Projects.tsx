@@ -58,16 +58,6 @@ const projectData = [
     projectUrl: "https://vapingsidewalk-client.onrender.com/",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "MUI"],
   },
-  {
-    title: "Delicia",
-    img: "/projects-img/delicia.png",
-    subTitle: "Recipe App",
-    video: "",
-    description:
-      "Delicia is a recipe app that lets users discover, save, and explore a variety of dishes with easy-to-follow instructions.",
-    projectUrl: "https://delicia-recipes.vercel.app/",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-  },
 ];
 
 const Projects = () => {
