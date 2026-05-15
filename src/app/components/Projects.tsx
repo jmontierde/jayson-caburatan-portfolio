@@ -7,6 +7,16 @@ import Link from "next/link";
 
 const projectData = [
   {
+    title: "Sellora",
+    img: "/projects-img/sellora.png",
+    subTitle: "E-commerce Website",
+    video: "",
+    description:
+      "Sellora is a SaaS ecommerce platform I built that helps merchants launch online stores powered by AI — featuring AI copywriting, smart chatbots, real-time analytics, and conversion-optimized storefronts.",
+    projectUrl: "https://sellora-app.vercel.app",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Clerk Auth", "Convex", "Vercel"],
+  },  
+  {
     title: "Spend Wise",
     img: "/projects-img/spend-wise-web.png",
     mobileImg: "/projects-img/spend-wise-mobile.png",
@@ -17,16 +27,7 @@ const projectData = [
     projectUrl: "https://spend-wise-web-rho.vercel.app",
     techStack: ["React", "Redux", "TypeScript", "React Native", "Convex", "Clerk", "OAuth", "OpenAI", "Tailwind CSS"],
   },
-  {
-    title: "SentiAI",
-    img: "/projects-img/senti-ai.png",
-    subTitle: "Mental Health Companion",
-    video: "/vid/senti-vid.mov",
-    description:
-      "SentiAI is a mental health companion app that offers supportive conversations, helping users reflect, manage emotions, and feel heard.",
-    projectUrl: "https://senti-app-teal.vercel.app/",
-    techStack: ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "Vercel"],
-  },
+
   {
     title: "TutorAI",
     img: "/projects-img/tutor-ai.png",
@@ -36,6 +37,16 @@ const projectData = [
       "TutorAI is a learning app with an AI voice companion that teaches, answers questions, and makes lessons interactive.",
     projectUrl: "https://tutor-ai-saas.vercel.app/",
     techStack: ["Next.js", "TypeScript", "Vapi AI", "Supabase", "PostgreSQL", "Tailwind CSS", "Vercel"],
+  },
+  {
+    title: "SentiAI",
+    img: "/projects-img/senti-ai.png",
+    subTitle: "Mental Health Companion",
+    video: "/vid/senti-vid.mov",
+    description:
+      "SentiAI is a mental health companion app that offers supportive conversations, helping users reflect, manage emotions, and feel heard.",
+    projectUrl: "https://senti-app-teal.vercel.app/",
+    techStack: ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "Vercel"],
   },
   {
     title: "Vaping Sidewalk",
