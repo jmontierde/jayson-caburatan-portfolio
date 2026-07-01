@@ -20,6 +20,16 @@ type Project = {
 
 const fallbackProjects: Project[] = [
   {
+    title: "Sellora",
+    img: "/projects-img/sellora.png",
+    subTitle: "E-commerce Website",
+    video: "",
+    description:
+      "Sellora is a SaaS ecommerce platform I built that helps merchants launch online stores powered by AI — featuring AI copywriting, smart chatbots, real-time analytics, and conversion-optimized storefronts.",
+    projectUrl: "https://sellora-app.vercel.app",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Clerk Auth", "Convex", "Vercel"],
+  },  
+  {
     title: "Spend Wise",
     img: "/projects-img/spend-wise-web.png",
     mobileImg: "/projects-img/spend-wise-mobile.png",
@@ -29,6 +39,17 @@ const fallbackProjects: Project[] = [
       "SpendWise is an expense tracking app that helps users manage their budget, track spending, and gain insights into their financial habits.",
     projectUrl: "https://spend-wise-web-rho.vercel.app",
     techStack: ["React", "Redux", "TypeScript", "React Native", "Convex", "Clerk", "OAuth", "OpenAI", "Tailwind CSS"],
+  },
+
+  {
+    title: "TutorAI",
+    img: "/projects-img/tutor-ai.png",
+    subTitle: "Learning Platform",
+    video: "/vid/tutor-ai-vid.mov",
+    description:
+      "TutorAI is a learning app with an AI voice companion that teaches, answers questions, and makes lessons interactive.",
+    projectUrl: "https://tutor-ai-saas.vercel.app/",
+    techStack: ["Next.js", "TypeScript", "Vapi AI", "Supabase", "PostgreSQL", "Tailwind CSS", "Vercel"],
   },
   {
     title: "SentiAI",
@@ -41,16 +62,6 @@ const fallbackProjects: Project[] = [
     techStack: ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS", "Vercel"],
   },
   {
-    title: "TutorAI",
-    img: "/projects-img/tutor-ai.png",
-    subTitle: "Learning Platform",
-    video: "/vid/tutor-ai-vid.mov",
-    description:
-      "TutorAI is a learning app with an AI voice companion that teaches, answers questions, and makes lessons interactive.",
-    projectUrl: "https://tutor-ai-saas.vercel.app/",
-    techStack: ["Next.js", "TypeScript", "Vapi AI", "Supabase", "PostgreSQL", "Tailwind CSS", "Vercel"],
-  },
-  {
     title: "Vaping Sidewalk",
     subTitle: "E-commerce Website",
     img: "/projects-img/vaping.png",
@@ -59,16 +70,6 @@ const fallbackProjects: Project[] = [
       "Vaping Sidewalk is an e-commerce website designed for browsing, shopping, and purchasing vaping products online.",
     projectUrl: "https://vapingsidewalk-client.onrender.com/",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "MUI"],
-  },
-  {
-    title: "Delicia",
-    img: "/projects-img/delicia.png",
-    subTitle: "Recipe App",
-    video: "",
-    description:
-      "Delicia is a recipe app that lets users discover, save, and explore a variety of dishes with easy-to-follow instructions.",
-    projectUrl: "https://delicia-recipes.vercel.app/",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
   },
 ];
 
