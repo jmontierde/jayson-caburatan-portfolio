@@ -1,62 +1,31 @@
-'use client";';
+"use client";
 
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
+import { useQuery } from "convex/react";
+import { api } from "../../../convex/_generated/api";
 
-const reviews = [
-  {
-    name: "TypeScript",
-    img: "/typescript-icon.svg",
-  },
-  {
-    name: "React",
-    img: "/react.svg",
-  },
-  {
-    name: "Next.js",
-    img: "/nextjs-icon.svg",
-  },
-  {
-    name: "Javascript",
-    img: "/javascript.svg",
-  },
-  {
-    name: "Node.js",
-    img: "/nodejs-icon.svg",
-  },
-  {
-    name: "PostgreSQL",
-    img: "/postgresql.svg",
-  },
-  {
-    name: "MySQL",
-    img: "/mysql.svg",
-  },
-  {
-    name: "MongoDB",
-    img: "/mongodb.svg",
-  },
-  {
-    name: "HTML",
-    img: "/html-5.svg",
-  },
-  {
-    name: "CSS",
-    img: "/css-3.svg",
-  },
+type Tech = { name: string; img: string };
+
+const fallbackTech: Tech[] = [
+  { name: "TypeScript", img: "/typescript-icon.svg" },
+  { name: "React", img: "/react.svg" },
+  { name: "Next.js", img: "/nextjs-icon.svg" },
+  { name: "Javascript", img: "/javascript.svg" },
+  { name: "Node.js", img: "/nodejs-icon.svg" },
+  { name: "PostgreSQL", img: "/postgresql.svg" },
+  { name: "MySQL", img: "/mysql.svg" },
+  { name: "MongoDB", img: "/mongodb.svg" },
+  { name: "HTML", img: "/html-5.svg" },
+  { name: "CSS", img: "/css-3.svg" },
 ];
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
 
 const ReviewCard = ({ img, name }: { img: string; name: string }) => {
   return (
     <figure
       className={cn(
         "relative h-full w-32 cursor-pointer overflow-hidden rounded-xl border p-3",
-        // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        // dark styles
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
       )}
     >
@@ -73,6 +42,12 @@ const ReviewCard = ({ img, name }: { img: string; name: string }) => {
 };
 
 export function TechStack() {
+  const remote = useQuery(api.techStack.list);
+  const reviews: Tech[] = remote && remote.length > 0 ? remote : fallbackTech;
+
+  const firstRow = reviews.slice(0, Math.ceil(reviews.length / 2));
+  const secondRow = reviews.slice(Math.ceil(reviews.length / 2));
+
   return (
     <div className="relative flex  md:max-w-8/12 md:mx-auto flex-col items-center justify-center overflow-hidden">
       <Marquee pauseOnHover className="[--duration:20s]">
