@@ -11,36 +11,23 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Navbar from "./components/Navbar";
 import Chatbot from "./components/Chatbot";
+import { useQuery } from "convex/react";
+import { api } from "../../convex/_generated/api";
+
+const fallbackMenuItems = [
+  { link: "#projects", text: "Vaping Sidewalk", image: "/projects-img/vaping.png" },
+  { link: "#projects", text: "SentiAI", image: "/projects-img/senti-ai1.png" },
+  { link: "#projects", text: "TutorAI", image: "/projects-img/tutor-ai.png" },
+  { link: "#projects", text: "Delicia", image: "/projects-img/delicia.png" },
+  { link: "#projects", text: "Spend Wise", image: "/projects-img/spend-wise-web.png" },
+];
 
 export default function Home() {
-  const demoItems = [
-    {
-      link: "#projects",
-      text: "Sellora",
-      image: "/projects-img/sellora.png",
-    },
-    {
-      link: "#projects",
-      text: "Spend Wise",
-      image: "/projects-img/spend-wise-web.png",
-    },
-   
-    {
-      link: "#projects",
-      text: "SentiAI",
-      image: "/projects-img/senti-ai1.png",
-    },
-    {
-      link: "#projects",
-      text: "TutorAI",
-      image: "/projects-img/tutor-ai.png",
-    },
-    {
-      link: "#projects",
-      text: "Vaping Sidewalk",
-      image: "/projects-img/vaping.png",
-    },
-  ];
+  const remoteMenu = useQuery(api.flowingMenu.list);
+  const demoItems =
+    remoteMenu && remoteMenu.length > 0
+      ? remoteMenu.map((m) => ({ link: m.link, text: m.text, image: m.image }))
+      : fallbackMenuItems;
 
   return (
     <div className="bg-[#333333] h-full scroll-smooth overflow-hidden">

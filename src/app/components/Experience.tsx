@@ -2,6 +2,8 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Briefcase } from "lucide-react";
+import { useQuery } from "convex/react";
+import { api } from "../../../convex/_generated/api";
 
 interface ExperienceItem {
   role: string;
@@ -12,7 +14,7 @@ interface ExperienceItem {
   bullets: string[];
 }
 
-const experiences: ExperienceItem[] = [
+const fallbackExperiences: ExperienceItem[] = [
   {
     role: "Frontend Developer",
     company: "Tito Solutions",
@@ -80,13 +82,9 @@ const ExperienceCard = ({
       transition={{ duration: 0.6, delay: index * 0.15 }}
       className="relative pl-8 md:pl-12 pb-12 last:pb-0 group"
     >
-      {/* Timeline line */}
       <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[#EDFF21] to-[#EDFF21]/10 group-last:bg-gradient-to-b group-last:from-[#EDFF21] group-last:to-transparent" />
-
-      {/* Timeline dot */}
       <div className="absolute left-0 top-1 -translate-x-1/2 w-3 h-3 rounded-full bg-[#EDFF21] shadow-[0_0_12px_rgba(237,255,33,0.5)]" />
 
-      {/* Card */}
       <div className="bg-[#1a1a1f] border border-[#2a2a30] rounded-2xl p-6 hover:border-[#EDFF21]/30 transition-all duration-300 hover:shadow-[0_0_30px_rgba(237,255,33,0.05)]">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
           <div>
@@ -101,7 +99,6 @@ const ExperienceCard = ({
           </div>
         </div>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
           {exp.tags.map((tag) => (
             <span
@@ -113,7 +110,6 @@ const ExperienceCard = ({
           ))}
         </div>
 
-        {/* Bullets */}
         <ul className="space-y-2">
           {exp.bullets.map((bullet, i) => (
             <li
@@ -131,9 +127,12 @@ const ExperienceCard = ({
 };
 
 const Experience = () => {
+  const remote = useQuery(api.experience.list);
+  const experiences: ExperienceItem[] =
+    remote && remote.length > 0 ? remote : fallbackExperiences;
+
   return (
     <div className="flex flex-col gap-16">
-      {/* Section Header */}
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2 px-4 py-2 bg-[#1a1a1f] border border-[#2a2a30] rounded-full">
           <Briefcase size={16} className="text-[#EDFF21]" />
@@ -148,13 +147,12 @@ const Experience = () => {
           Experience
         </h2>
         <p className="text-[#8B8B8B] text-base mb-10">
-          Recent roles and the systems I've been trusted to build.
+          Recent roles and the systems I&apos;ve been trusted to build.
         </p>
 
-        {/* Timeline */}
         <div className="relative">
           {experiences.map((exp, i) => (
-            <ExperienceCard key={exp.company} exp={exp} index={i} />
+            <ExperienceCard key={`${exp.company}-${i}`} exp={exp} index={i} />
           ))}
         </div>
       </div>
